@@ -12,7 +12,7 @@ const getAllCourses = async (req, res) => {
 const putLikes = async (req, res) => {
     try {
         const course = await Courses.findOne({id: req.params.id});
-        course.likes = req.body.likes;
+        course.likes += req.body.likes;
         await course.save();
         res.json(course);
     } catch (error) {
